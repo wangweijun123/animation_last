@@ -1,0 +1,10 @@
+try {
+
+}
+
+try { 从哪行开始, 到哪行结束}
+exception table (异常表) { exception }
+如果都没有catch, 抛给虚拟机 --> 虚拟机c++调用 java层
+Thread.dispatchUncaughtException{
+    handler.uncaughtException
+}
