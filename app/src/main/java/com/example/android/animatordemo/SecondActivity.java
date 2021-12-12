@@ -1,5 +1,6 @@
 package com.example.android.animatordemo;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.VectorDrawable;
@@ -56,5 +57,9 @@ public class SecondActivity extends AppCompatActivity {
         super.onStart();
         // 如果要自动启动动画,请在Activity.onStart()中调用
         // rocketAnimation.start();
+    }
+
+    public void jumpCrossFade(View view) {
+        startActivity(new Intent(getApplicationContext(), CrossfadeActivity.class));
     }
 }
