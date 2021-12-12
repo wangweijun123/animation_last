@@ -1,27 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="跳转异常界面"
-        android:onClick="jumpExecption"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/container">
+            <!-- android:animateLayoutChanges="true" 等价于
+            给容器设置了一个对象 new LayoutTransition(), 可以手动替换 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我是可见不可见的view"
+                android:visibility="gone"
+                android:id="@+id/hideShowView"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="属性动画"
-        android:onClick="propertyAnimator"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跳转第二个activity演示动画"
+                android:onClick="jumpSecondActivity"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="属性动画2"
-        android:onClick="propertyAnimator2"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:background="#ff0000"
+                    android:id="@+id/iv"/>
 
-</LinearLayout>
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:text="我是占位图"/>
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跳转异常界面"
+                android:onClick="jumpExecption"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="属性动画"
+                android:onClick="propertyAnimator"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="属性动画2"
+                android:onClick="propertyAnimator2"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除自己(动画)"
+                android:onClick="deleteSelf"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加view(动画)"
+                android:onClick="addChildView"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="放大视图属性 scaleX"
+                android:onClick="scaleImageView"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="放大视图scaleX和scaleY"
+                android:onClick="scaleImageView2"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取默认的轴心点(scale, rotation)"
+                android:onClick="getPivotXY"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="移动视图"
+                android:onClick="moveImageView"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取视图位置"
+                android:onClick="getImageViewLocation"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设置imageview宽高放大视图"
+                android:onClick="setImageViewWidth"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="使用属性动画来设置宽高"
+                android:onClick="setImageViewWidthByAnimator"/>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="显示和隐藏的view"
+                android:onClick="showHideContent"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="按钮的状态发生变化产生动画"
+                android:onClick="viewStateChanged"
+                android:stateListAnimator="@xml/animate_scale"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Evaluator根据时间百分比求值value"
+                android:onClick="viewStateChanged"
+                android:stateListAnimator="@xml/animate_scale"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/upView"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:background="#00ff00"
+            android:text="我是最上层的view" />
+
+        <ImageView
+            android:id="@+id/up_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#0000ff"
+            android:src="@mipmap/ic_launcher" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="视图动画定义xml(res/anim/xxx.xml)"
+            android:onClick="useViewAnimationXML"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="属性动画定义xml(res/animator/xxx.xml)"
+            android:onClick="usePropertyAnimationXML"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="使用xml(res/animator/animator.xml)定义属性动画"
+            android:onClick="usePropertyAnimationXML2"/>
+
+    </LinearLayout>
+
+</FrameLayout>
+

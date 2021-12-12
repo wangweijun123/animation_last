@@ -1,3 +1,9 @@
+总结就是:
+
+视图动图:
+属性动画: ObjectAnimator, 动画没有改变 mTop, mLeft, 改变的是 RenderNode
+
+
 try {
 
 }
