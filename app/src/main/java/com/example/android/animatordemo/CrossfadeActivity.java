@@ -40,13 +40,15 @@ public class CrossfadeActivity extends AppCompatActivity {
 
         // Set the content view to 0% opacity but visible, so that it is visible
         // (but fully transparent) during the animation.
-        contentView.setAlpha(0f);
+        contentView.setAlpha(0f); // 可见, 但是完全透明
         contentView.setVisibility(View.VISIBLE);
+
+        loadingView.setAlpha(1f);
 
         // Animate the content view to 100% opacity, and clear any animation
         // listener set on the view.
         contentView.animate()
-                .alpha(1f)
+                .alpha(1f) // 目的值:最终的透明度(完成不透明,也就是可见)
                 .setDuration(shortAnimationDuration)
                 .setListener(null);
 
