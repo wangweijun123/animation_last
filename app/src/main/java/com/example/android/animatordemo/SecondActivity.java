@@ -5,12 +5,15 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.HashMap;
 
 public class SecondActivity extends AppCompatActivity {
     private static final String TAG = "SecondActivity";
@@ -25,12 +28,7 @@ public class SecondActivity extends AppCompatActivity {
         rocketImage.setBackgroundResource(R.drawable.rocket_thrust);
         rocketAnimation = (AnimationDrawable) rocketImage.getBackground();
 
-        rocketImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                rocketAnimation.start();
-            }
-        });
+        rocketImage.setOnClickListener(view -> rocketAnimation.start());
 
         ImageView vector_image = findViewById(R.id.vector_image);
 //        vector_image.setBackgroundResource(R.drawable.animatorvectordrawable);
@@ -62,4 +60,23 @@ public class SecondActivity extends AppCompatActivity {
     public void jumpCrossFade(View view) {
         startActivity(new Intent(getApplicationContext(), CrossfadeActivity.class));
     }
+
+    public void testHashMap(View view) {
+        HashMap<Person, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < 14; i++) {
+            hashMap.put(new Person(i), i);
+        }
+    }
+
+    public void testArrayMap(View view) {
+        ArrayMap<Person, Integer> hashMap = new ArrayMap<>();
+        Person lastPerson = null;
+        for (int i = 0; i < 14; i++) {
+            lastPerson = new Person(i);
+            hashMap.put(lastPerson, i);
+        }
+        Integer integer = hashMap.get(lastPerson);
+        Log.i(TAG, "testArrayMap: value = " + integer);
+    }
+
 }

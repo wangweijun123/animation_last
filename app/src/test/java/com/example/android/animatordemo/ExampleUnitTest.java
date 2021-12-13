@@ -1,6 +1,11 @@
 package com.example.android.animatordemo;
 
+import android.util.ArrayMap;
+
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Objects;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +16,12 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void testHashMap() {
+        HashMap<Person, Integer> hashMap = new HashMap<>();
+        for (int i = 0; i < 14; i++) {
+            hashMap.put(new Person(i), i);
+        }
     }
+
+
 }
